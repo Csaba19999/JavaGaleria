@@ -6,8 +6,10 @@
 package modell;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -23,14 +25,25 @@ public class Galeria extends KiallitasiTargy implements Iterable<KiallitasiTargy
     public Galeria(Date letrehozasiDatum, String keszito, String cim) {
         super(letrehozasiDatum, keszito, cim);
     }
-    public ArrayList<KiallitasiTargy> getFestmenyek() {
-        return kialitasiTargyak;
+    
+    
+    public List<KiallitasiTargy> getFestmenyek() {
+        List targyakLista = kialitasiTargyak;
+        return targyakLista;
     }
     
     public void galeriabaFelvesz(KiallitasiTargy e){
         kialitasiTargyak.add(e);
     }
-    
+    public void galeriaBejarasa(){
+        List lista = getFestmenyek();
+        System.out.println("Rendezetlen :");
+        lista.forEach((e) -> {
+            System.out.println(e,"\n");
+        });
+        System.out.println("Rendezett");
+        Collections.sort(lista));
+    }
    
 
     @Override
